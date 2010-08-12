@@ -1,4 +1,3 @@
-
 #import <Foundation/Foundation.h>
 #import <AppKit/NSWorkspace.h>
 #import <libc.h>  // for getopt()
@@ -43,11 +42,11 @@ int main (int argc, char * const *argv)
     NSMutableArray    *files = [NSMutableArray array];
     BOOL              aproposMode = NO;
     BOOL              forceToFront = YES;
-    int               i;
+    NSInteger               i;
     char              c;
     NSDistantObject <ManOpen>  *server;
-    int               maxConnectTries;
-    int               connectCount;
+    NSInteger               maxConnectTries;
+    NSInteger               connectCount;
 
     while ((c = getopt(argc,argv,"hbm:M:f:kaCcw")) != EOF)
     {

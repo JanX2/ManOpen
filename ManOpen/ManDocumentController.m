@@ -145,7 +145,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
     return command;
 }
 
-- (NSData *)dataByExecutingCommand:(NSString *)command maxLength:(int)maxLength environment:(NSDictionary*)extraEnv
+- (NSData *)dataByExecutingCommand:(NSString *)command maxLength:(NSInteger)maxLength environment:(NSDictionary*)extraEnv
 {
     NSPipe *pipe = [[NSPipe alloc] init];
     NSTask *task = [[NSTask alloc] init];
@@ -181,7 +181,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
     return output;
 }
 
-- (NSData *)dataByExecutingCommand:(NSString *)command maxLength:(int)maxLength
+- (NSData *)dataByExecutingCommand:(NSString *)command maxLength:(NSInteger)maxLength
 {
     return [self dataByExecutingCommand:command maxLength:maxLength environment:nil];
 }
@@ -216,7 +216,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
     {
         NSFileManager *manager = [NSFileManager defaultManager];
         NSString *filename;
-        int len = [data length];
+        NSInteger len = [data length];
         const char *ptr = [data bytes];
         const char *newlinePtr = memchr(ptr, '\n', len);
 
@@ -237,7 +237,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
 	NSFileHandle  *handle;
     NSFileManager *manager = [NSFileManager defaultManager];
     NSDictionary  *attributes = [manager attributesOfItemAtPath:[filename stringByResolvingSymlinksInPath] error:NULL];
-    unsigned      maxLength = MIN(150, (unsigned)[attributes fileSize]);
+    NSUInteger      maxLength = MIN(150, (NSUInteger)[attributes fileSize]);
     NSData        *fileHeader;
     NSString      *catType = @"cat";
     NSString      *manType = @"man";
@@ -300,7 +300,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
 }
 
 /* Ignore the types; man/cat files can have any range of extensions. */
-- (int)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions
+- (NSInteger)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions
 {
     return [openPanel runModal];
 }
@@ -308,7 +308,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
 - (id)documentForTitle:(NSString *)title
 {
     NSArray *documents = [self documents];
-    int     i, count = [documents count];
+    NSInteger     i, count = [documents count];
 
     for (i=0; i<count; i++)
     {
@@ -432,7 +432,7 @@ static NSArray *GetWordArray(NSString *string)
     NSArray *words = GetWordArray(string);
     
     if ([words count] > 20) {
-        int reply = NSRunAlertPanel(@"Warning", @"This will open approximately %d windows!",
+        NSInteger reply = NSRunAlertPanel(@"Warning", @"This will open approximately %d windows!",
                                     @"Cancel", @"Continue", nil, [words count]);
         if (reply != NSAlertAlternateReturn)
             return;
@@ -524,7 +524,7 @@ static BOOL IsSectionWord(NSString *word)
     if ([string length] > 0 && [openSectionPopup indexOfSelectedItem] > 0 &&
         [string rangeOfString:@"("].length == 0)
     {
-        string = [string stringByAppendingFormat:@"(%d)", [openSectionPopup indexOfSelectedItem]];
+        string = [string stringByAppendingFormat:@"(%ld)", (long)[openSectionPopup indexOfSelectedItem]];
     }
 
     [self openString:string];
@@ -545,7 +545,7 @@ static BOOL IsSectionWord(NSString *word)
     else if ([sender tag] == 20)
         [self openApropos:@"(n)"];
     else
-        [self openApropos:[NSString stringWithFormat:@"(%d", [sender tag]]];
+        [self openApropos:[NSString stringWithFormat:@"(%ld", (long)[sender tag]]];
 }
 
 - (BOOL)useModalPanels
@@ -790,7 +790,7 @@ static BOOL IsSectionWord(NSString *word)
         NSString *path = [param substringFromIndex:[URL_PREFIX length]];
         NSMutableArray *pageNames = [NSMutableArray array];
         NSArray *components = [path pathComponents];
-        int i, count = [components count];
+        NSInteger i, count = [components count];
 
         for (i=0; i<count; i++)
         {

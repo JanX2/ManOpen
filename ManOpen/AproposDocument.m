@@ -94,7 +94,7 @@
 - (void)parseOutput:(NSString *)output
 {
     NSArray *lines = [output componentsSeparatedByString:@"\n"];
-    int     i, count = [lines count];
+    NSInteger i, count = [lines count];
 
     if ([output length] == 0) return;
 
@@ -147,12 +147,12 @@
 }
 
 /* NSTableView dataSource */
-- (int)numberOfRowsInTableView:(NSTableView *)tableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     return [titles count];
 }
 
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     NSArray *strings = (tableColumn == titleColumn)? titles : descriptions;
     return [strings objectAtIndex:row];

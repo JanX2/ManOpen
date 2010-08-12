@@ -244,7 +244,7 @@
     NSString *searchText = [self string];
     NSRange  selectedRange = [self selectedRange];
     NSRange  beforeRange, afterRange, searchRange, foundRange;
-    int      mask = 0;
+    NSInteger mask = 0;
 
     beforeRange = NSMakeRange(0, selectedRange.location);
     afterRange.location = NSMaxRange(selectedRange);

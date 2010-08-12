@@ -66,7 +66,7 @@ NSFont *ManFont()
         NSRange spaceRange = [fontString rangeOfString:@" "];
         if (spaceRange.length > 0)
         {
-            float size = [[fontString substringToIndex:spaceRange.location] floatValue];
+            CGFloat size = [[fontString substringToIndex:spaceRange.location] doubleValue];
             NSString *name = [fontString substringFromIndex:NSMaxRange(spaceRange)];
             NSFont *font = [NSFont fontWithName:name size:size];
             if (font != nil) return font;
@@ -171,7 +171,7 @@ void RegisterManDefaults()
     if (!font) return;
     [fontField setFont:font];
     [fontField setStringValue:
-        [NSString stringWithFormat:@"%@ %.1f", [font familyName], [font pointSize]]];
+        [NSString stringWithFormat:@"%@ %.1f", [font familyName], (double)[font pointSize]]];
 }
 
 - (IBAction)switchPrefPane:(id)sender
@@ -215,7 +215,7 @@ void RegisterManDefaults()
 - (IBAction)saveToDefaults:(id)sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int i, count = [manPathArray count];
+    NSInteger i, count = [manPathArray count];
     NSMutableArray *rawPathArray = [NSMutableArray arrayWithCapacity:count];
 
     [defaults setBool:[lastClosedSwitch state]      forKey:@"QuitWhenLastClosed"];
@@ -269,7 +269,7 @@ void RegisterManDefaults()
 
     font = [sender convertFont:font];
     [self setFontFieldToFont:font];
-    fontString = [NSString stringWithFormat:@"%f %@", [font pointSize], [font fontName]];
+    fontString = [NSString stringWithFormat:@"%f %@", (double)[font pointSize], [font fontName]];
     [[NSUserDefaults standardUserDefaults] setObject:fontString forKey:@"ManFont"];
 }
 
@@ -286,7 +286,7 @@ void RegisterManDefaults()
         NSString *path = [[panel filename] stringByAbbreviatingWithTildeInPath];
         if (![manPathArray containsObject:path])
         {
-            int insertionIndex = [manPathTableView selectedRow];
+            NSInteger insertionIndex = [manPathTableView selectedRow];
 
             if (insertionIndex < 0)
                 insertionIndex = [manPathArray count]; //add it on the end
@@ -300,7 +300,7 @@ void RegisterManDefaults()
 
 - (IBAction)removePath:(id)sender
 {
-    int selectedIndex = [manPathTableView selectedRow];
+    NSInteger selectedIndex = [manPathTableView selectedRow];
 
     if (selectedIndex >= 0)
     {
@@ -310,10 +310,10 @@ void RegisterManDefaults()
     }
 }
 
-- (void)moveSelectedPathBy:(int)indexOffset
+- (void)moveSelectedPathBy:(NSInteger)indexOffset
 {
-    int selectedRow = [manPathTableView selectedRow];
-    int targetRow = selectedRow + indexOffset;
+    NSInteger selectedRow = [manPathTableView selectedRow];
+    NSInteger targetRow = selectedRow + indexOffset;
     
     if (selectedRow >= 0 && targetRow >= 0 && targetRow < [manPathArray count])
     {
@@ -338,19 +338,19 @@ void RegisterManDefaults()
 
 /** NSTableView data source **/
 
-- (int)numberOfRowsInTableView:(NSTableView *)tableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     return [manPathArray count];
 }
 
 - (id)tableView:(NSTableView *)tableView
-   objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
+   objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     return [manPathArray objectAtIndex:row];
 }
 
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object
-   forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 }
 
@@ -394,7 +394,7 @@ static NSString *currentApp = nil;
 
 - (void)setAppPopupToCurrent
 {
-    int currIndex = [availableApps indexOfObject:currentApp];
+    NSInteger currIndex = [availableApps indexOfObject:currentApp];
 
     if (currIndex == NSNotFound) {
         currIndex = 0;
@@ -407,7 +407,7 @@ static NSString *currentApp = nil;
 - (void)resetAppPopup
 {
     NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-    int i;
+    NSUInteger i;
 
     [appPopup removeAllItems];
     [appPopup setImage:nil];
@@ -418,10 +418,10 @@ static NSString *currentApp = nil;
         NSImage *image = [[workspace iconForFile:currPath] copy];
         NSString *niceName = [appNames objectAtIndex:i];
         NSString *displayName = niceName;
-        int num = 2;
+        NSUInteger num = 2;
 
         while ([appPopup indexOfItemWithTitle:displayName] >= 0) {
-            displayName = [NSString stringWithFormat:@"%@[%d]", niceName, num++];
+            displayName = [NSString stringWithFormat:@"%@[%lu]", niceName, (unsigned long)num++];
         }
         [appPopup addItemWithTitle:displayName];
 
@@ -465,9 +465,9 @@ static NSString *currentApp = nil;
 
 - (void)setManPageViewer:(NSString *)app
 {
-    int error;
+    NSInteger error;
     if ((error = LSSetDefaultHandlerForURLScheme((CFStringRef)URL_SCHEME, (CFStringRef)app)) != 0)
-        NSLog(@"Could not set default " URL_SCHEME_PREFIX @" app: Launch Services error %d", error);
+        NSLog(@"Could not set default " URL_SCHEME_PREFIX @" app: Launch Services error %ld", (long)error);
 
     [self resetCurrentApp];
 }
@@ -500,7 +500,7 @@ static NSString *currentApp = nil;
 
 - (IBAction)chooseNewApp:(id)sender
 {
-    int choice = [appPopup indexOfSelectedItem];
+    NSInteger choice = [appPopup indexOfSelectedItem];
 
     if (choice >= 0 && choice < [availableApps count]) {
         NSString *appID = [availableApps objectAtIndex:choice];
@@ -519,7 +519,7 @@ static NSString *currentApp = nil;
     }
 }
 
-- (void)panelDidEnd:(NSOpenPanel *)panel code:(int)returnCode context:(void *)context
+- (void)panelDidEnd:(NSOpenPanel *)panel code:(NSInteger)returnCode context:(void *)context
 {
     if (returnCode == NSOKButton) {
 		NSBundle *appBundle = [NSBundle bundleWithPath:[[[panel URLs] objectAtIndex:0] path]];

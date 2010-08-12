@@ -98,12 +98,12 @@
         [header rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]].length == 0)
     {
         NSString *label = header;
-        int count = 1;
+        NSInteger count = 1;
 
         /* Check for dups (e.g. lesskey(1) ) */
         while ([sections containsObject:label]) {
             count++;
-            label = [NSString stringWithFormat:@"%@ [%d]", header, count];
+            label = [NSString stringWithFormat:@"%@ [%ld]", header, (long)count];
         }
 
         [sections addObject:label];
@@ -151,8 +151,8 @@
     {
         NSFontManager *manager = [NSFontManager sharedFontManager];
         NSString      *family = [manFont familyName];
-        float         size    = [manFont pointSize];
-        unsigned      currIndex = 0;
+        CGFloat         size    = [manFont pointSize];
+        NSUInteger      currIndex = 0;
 
         NS_DURING
         [storage beginEditing];
@@ -356,7 +356,7 @@
 
 - (IBAction)displaySection:(id)sender
 {
-    int section = [sectionPopup indexOfSelectedItem];
+    NSInteger section = [sectionPopup indexOfSelectedItem];
     if (section > 0 && section <= [sectionRanges count]) {
         NSRange range = [[sectionRanges objectAtIndex:section-1] rangeValue];
         [textView scrollRangeToTop:range];
@@ -395,7 +395,7 @@
     return [super validateMenuItem:item];
 }
 
-- (BOOL)textView:(NSTextView *)aTextView clickedOnLink:(id)link atIndex:(unsigned)charIndex
+- (BOOL)textView:(NSTextView *)aTextView clickedOnLink:(id)link atIndex:(NSUInteger)charIndex
 {
     NSString *page = nil;
 
@@ -501,7 +501,7 @@ static NSCursor *linkCursor = nil;
     NSLayoutManager *layout    = [self layoutManager];
     NSTextStorage *storage     = [self textStorage];
     NSRect visible = [self visibleRect];
-    int currIndex = 0;
+    NSInteger currIndex = 0;
 
     [super resetCursorRects];
 
@@ -520,8 +520,8 @@ static NSCursor *linkCursor = nil;
         {
             NSRect *rects;
             NSRange ignoreRange = {NSNotFound, 0};
-            unsigned rectCount = 0;
-            int i;
+            NSUInteger rectCount = 0;
+            NSInteger i;
 
             rects = [layout rectArrayForCharacterRange:currRange
                             withinSelectedCharacterRange:ignoreRange
@@ -542,7 +542,7 @@ static NSCursor *linkCursor = nil;
     NSLayoutManager *layout = [self layoutManager];
     NSRange glyphRange = [layout glyphRangeForCharacterRange:charRange actualCharacterRange:NULL];
     NSRect rect = [layout boundingRectForGlyphRange:glyphRange inTextContainer:[self textContainer]];
-    float height = NSHeight([self visibleRect]);
+    CGFloat height = NSHeight([self visibleRect]);
 
     if (height > 0)
         rect.size.height = height;

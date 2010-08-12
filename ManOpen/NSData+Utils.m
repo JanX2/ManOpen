@@ -57,7 +57,7 @@
     return NO;
 }
 
-- (BOOL)hasPrefixBytes:(void *)bytes length:(int)len
+- (BOOL)hasPrefixBytes:(void *)bytes length:(NSInteger)len
 {
     if ([self length] < len) return NO;
     return (memcmp([self bytes], bytes, len) == 0);
@@ -78,14 +78,14 @@
 /* Very rough check -- see if more than a third of the first 100 bytes have the high bit set */
 - (BOOL)isBinaryData
 {
-    int checklen = MIN(100, [self length]);
-    int i;
-    int badByteCount = 0;
+    NSInteger checklen = MIN(100, [self length]);
+    NSInteger i;
+    NSInteger badByteCount = 0;
     unsigned const char *bytes = [self bytes];
 
     if (checklen == 0) return NO;
     for (i=0; i<checklen; i++, bytes++)
-        if (*bytes == '\0' || !isascii((int)*bytes)) badByteCount++;
+        if (*bytes == '\0' || !isascii((NSInteger)*bytes)) badByteCount++;
 
     return (badByteCount > 0) && (checklen / badByteCount) <= 2;
 }
