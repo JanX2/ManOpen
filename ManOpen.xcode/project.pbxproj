@@ -1,0 +1,1736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 39;
+	objects = {
+		D314F2E60825A8F100E439E7 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
+			path = CustomInfoOSXOverrides.plist;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278DB0821FF9D00376676 = {
+			children = (
+				D39278E00821FFA400376676,
+				D39278E40821FFA400376676,
+				D39279800821FFA400376676,
+				D39278ED0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = ManOpen;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278DD0821FF9D00376676 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		D39278DE0821FF9D00376676 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+		D39278DF0821FFA400376676 = {
+			buildPhases = (
+				D39279740821FFA400376676,
+			);
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ManOpen;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+				D39278F00821FFA400376676,
+				D39279730821FFA400376676,
+			);
+			isa = PBXAggregateTarget;
+			name = "ManOpen (Aggregate)";
+			productName = "ManOpen (Aggregate)";
+		};
+		D39278E00821FFA400376676 = {
+			children = (
+				D39278E10821FFA400376676,
+				D39278E20821FFA400376676,
+				D39278E30821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Supporting Files";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E10821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.make;
+			path = Makefile;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E20821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.postamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E30821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.preamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E40821FFA400376676 = {
+			children = (
+				D39278E50821FFA400376676,
+				D392796A0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Subprojects;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E50821FFA400376676 = {
+			children = (
+				D39278F10821FFA400376676,
+				D39278FE0821FFA400376676,
+				D392790F0821FFA400376676,
+				D39279120821FFA400376676,
+				D39279270821FFA400376676,
+				D392792E0821FFA400376676,
+				D392793B0821FFA400376676,
+				D39279420821FFA400376676,
+			);
+			isa = PBXGroup;
+			path = ManOpen;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278E60821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279000821FFA400376676,
+				D39279020821FFA400376676,
+				D39279040821FFA400376676,
+				D39279060821FFA400376676,
+				D39279080821FFA400376676,
+				D392790A0821FFA400376676,
+				D392790C0821FFA400376676,
+				D392790E0821FFA400376676,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39278E70821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279140821FFA400376676,
+				D39279170821FFA400376676,
+				D392791A0821FFA400376676,
+				D392791D0821FFA400376676,
+				D39279200821FFA400376676,
+				D39279250821FFA400376676,
+				D39279290821FFA400376676,
+				D392792B0821FFA400376676,
+				D392792D0821FFA400376676,
+				D39279300821FFA400376676,
+				D39279320821FFA400376676,
+				D39279340821FFA400376676,
+				D39279360821FFA400376676,
+				D39279390821FFA400376676,
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39278E80821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39278F30821FFA400376676,
+				D39278F50821FFA400376676,
+				D39278F70821FFA400376676,
+				D39278F90821FFA400376676,
+				D39278FB0821FFA400376676,
+				D39278FD0821FFA400376676,
+				D39279110821FFA400376676,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39278E90821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279830821FFA400376676,
+				D39279860821FFA400376676,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39278EA0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39278EB0821FFA400376676 = {
+			buildPhases = (
+				D39278E60821FFA400376676,
+				D39278E70821FFA400376676,
+				D39278E80821FFA400376676,
+				D39278E90821FFA400376676,
+				D39278EA0821FFA400376676,
+				D392794D0821FFA400376676,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Apps";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ManOpen;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+				D392794C0821FFA400376676,
+				D39279600821FFA400376676,
+			);
+			isa = PBXApplicationTarget;
+			name = "ManOpen (Application)";
+			productInstallPath = "$(HOME)/Apps";
+			productName = "ManOpen (Application)";
+			productReference = D39278EC0821FFA400376676;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>man</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>man</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>cat</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>cat</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>mangz</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array/>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>catgz</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>ManOpen</string>
+	<key>CFBundleGetInfoString</key>
+	<string>ManOpen 2.5.1 (c) 2004 Carl Lindberg</string>
+	<key>CFBundleIconFile</key>
+	<string>ManOpen.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.clindberg.ManOpen</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>ManOpen</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.5.1</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Man Page URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>x-man-page</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>2.5.1</string>
+	<key>NSAppVersion</key>
+	<string>Version 2.5</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
+	<key>NSHumanReadableCompleteName</key>
+	<string>ManOpen</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright (c) 1999-2004 Carl Lindberg</string>
+	<key>NSHumanReadableShortName</key>
+	<string>ManOpen</string>
+	<key>NSInfoPlistVersion</key>
+	<string>5.0</string>
+	<key>NSMainNibFile</key>
+	<string>ManOpen.nib</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSExecutable</key>
+			<string>ManOpen</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>ManOpen/Open File</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>openFiles</string>
+			<key>NSPortName</key>
+			<string>ManOpen</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSExecutable</key>
+			<string>ManOpen</string>
+			<key>NSKeyEquivalent</key>
+			<dict>
+				<key>default</key>
+				<string>M</string>
+			</dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>ManOpen/Open Selection</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>openSelection</string>
+			<key>NSPortName</key>
+			<string>ManOpen</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSExecutable</key>
+			<string>ManOpen</string>
+			<key>NSKeyEquivalent</key>
+			<dict>
+				<key>default</key>
+				<string>A</string>
+			</dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>ManOpen/Apropos</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>openApropos</string>
+			<key>NSPortName</key>
+			<string>ManOpen</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>NSDOSExtensions</key>
+			<array>
+				<string>man</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+			<key>NSHumanReadableName</key>
+			<string>Man page (nroff source)</string>
+			<key>NSName</key>
+			<string>man</string>
+			<key>NSRole</key>
+			<string>Viewer</string>
+			<key>NSUnixExtensions</key>
+			<array>
+				<string>man</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+			<key>NSHumanReadableName</key>
+			<string>Man page (nroff source), gzipped</string>
+			<key>NSName</key>
+			<string>mangz</string>
+			<key>NSRole</key>
+			<string>Viewer</string>
+			<key>NSUnixExtensions</key>
+			<array>
+				<string>man.gz</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>NSDOSExtensions</key>
+			<array>
+				<string>cat</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+			<key>NSHumanReadableName</key>
+			<string>Cat file (plain text)</string>
+			<key>NSName</key>
+			<string>cat</string>
+			<key>NSRole</key>
+			<string>Viewer</string>
+			<key>NSUnixExtensions</key>
+			<array>
+				<string>cat</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+			<key>NSHumanReadableName</key>
+			<string>Cat file (plain text), gzipped</string>
+			<key>NSName</key>
+			<string>catgz</string>
+			<key>NSRole</key>
+			<string>Viewer</string>
+			<key>NSUnixExtensions</key>
+			<array>
+				<string>cat.gz</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
+";
+		};
+		D39278EC0821FFA400376676 = {
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = ManOpen.app;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D39278ED0821FFA400376676 = {
+			children = (
+				D39278EC0821FFA400376676,
+				D39279490821FFA400376676,
+				D392795D0821FFA400376676,
+				D39279700821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278EF0821FFA400376676 = {
+			containerPortal = D39279890821FFA400376676;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D39278EB0821FFA400376676;
+			remoteInfo = "ManOpen (Application)";
+		};
+		D39278F00821FFA400376676 = {
+			isa = PBXTargetDependency;
+			target = D39278EB0821FFA400376676;
+			targetProxy = D39278EF0821FFA400376676;
+		};
+		D39278F10821FFA400376676 = {
+			children = (
+				D39278F20821FFA400376676,
+				D39278F40821FFA400376676,
+				D39278F60821FFA400376676,
+				D39278F80821FFA400376676,
+				D39278FA0821FFA400376676,
+				D39278FC0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Classes;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278F20821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = AproposDocument.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278F30821FFA400376676 = {
+			fileRef = D39278F20821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278F40821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = FindPanelController.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278F50821FFA400376676 = {
+			fileRef = D39278F40821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278F60821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ManDocument.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278F70821FFA400376676 = {
+			fileRef = D39278F60821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278F80821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ManDocumentController.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278F90821FFA400376676 = {
+			fileRef = D39278F80821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278FA0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = "NSData+Utils.m";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278FB0821FFA400376676 = {
+			fileRef = D39278FA0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278FC0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = PrefPanelController.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278FD0821FFA400376676 = {
+			fileRef = D39278FC0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39278FE0821FFA400376676 = {
+			children = (
+				D39278FF0821FFA400376676,
+				D39279010821FFA400376676,
+				D39279030821FFA400376676,
+				D39279050821FFA400376676,
+				D39279070821FFA400376676,
+				D39279090821FFA400376676,
+				D392790B0821FFA400376676,
+				D392790D0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Headers;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39278FF0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = AproposDocument.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279000821FFA400376676 = {
+			fileRef = D39278FF0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279010821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = FindPanelController.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279020821FFA400376676 = {
+			fileRef = D39279010821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279030821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ManDocument.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279040821FFA400376676 = {
+			fileRef = D39279030821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279050821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ManDocumentController.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279060821FFA400376676 = {
+			fileRef = D39279050821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279070821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ManOpenProtocol.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279080821FFA400376676 = {
+			fileRef = D39279070821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					Project,
+				);
+			};
+		};
+		D39279090821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = "NSData+Utils.h";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392790A0821FFA400376676 = {
+			fileRef = D39279090821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392790B0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = PrefPanelController.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392790C0821FFA400376676 = {
+			fileRef = D392790B0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392790D0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = SystemType.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392790E0821FFA400376676 = {
+			fileRef = D392790D0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					Project,
+				);
+			};
+		};
+		D392790F0821FFA400376676 = {
+			children = (
+				D39279100821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Other Sources";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279100821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ManOpen_main.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279110821FFA400376676 = {
+			fileRef = D39279100821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39279120821FFA400376676 = {
+			children = (
+				D39279130821FFA400376676,
+				D39279160821FFA400376676,
+				D39279190821FFA400376676,
+				D392791C0821FFA400376676,
+				D392791F0821FFA400376676,
+				D39279240821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Interfaces;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279130821FFA400376676 = {
+			children = (
+				D39279150821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = ManPage.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279140821FFA400376676 = {
+			fileRef = D39279130821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279150821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/ManPage.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279160821FFA400376676 = {
+			children = (
+				D39279180821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = PrefPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279170821FFA400376676 = {
+			fileRef = D39279160821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279180821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/PrefPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279190821FFA400376676 = {
+			children = (
+				D392791B0821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = FindPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392791A0821FFA400376676 = {
+			fileRef = D39279190821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392791B0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/FindPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392791C0821FFA400376676 = {
+			children = (
+				D392791E0821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = Apropos.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392791D0821FFA400376676 = {
+			fileRef = D392791C0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392791E0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/Apropos.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392791F0821FFA400376676 = {
+			children = (
+				D39279210821FFA400376676,
+				D39279220821FFA400376676,
+				D39279230821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = ManOpen.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279200821FFA400376676 = {
+			fileRef = D392791F0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279210821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/ManOpen.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279220821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = "English - macintosh";
+			path = "English.lproj/ManOpen-macintosh.nib";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279230821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = "English - macos";
+			path = "English.lproj/ManOpen-macos.nib";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279240821FFA400376676 = {
+			children = (
+				D39279260821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = DocController.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279250821FFA400376676 = {
+			fileRef = D39279240821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279260821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/DocController.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279270821FFA400376676 = {
+			children = (
+				D39279280821FFA400376676,
+				D392792A0821FFA400376676,
+				D392792C0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Images;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279280821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			path = LinkCursor.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279290821FFA400376676 = {
+			fileRef = D39279280821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392792A0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			path = "ManOpen-nextstep.tiff";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392792B0821FFA400376676 = {
+			fileRef = D392792A0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392792C0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			path = ManOpen.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392792D0821FFA400376676 = {
+			fileRef = D392792C0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392792E0821FFA400376676 = {
+			children = (
+				D392792F0821FFA400376676,
+				D39279310821FFA400376676,
+				D39279330821FFA400376676,
+				D39279350821FFA400376676,
+				D39279380821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Resources;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392792F0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.scriptSuite;
+			path = ManOpen.scriptSuite;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279300821FFA400376676 = {
+			fileRef = D392792F0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279310821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.icns;
+			path = ManOpen.icns;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279320821FFA400376676 = {
+			fileRef = D39279310821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279330821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.scriptTerminology;
+			path = ManOpen.scriptTerminology;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279340821FFA400376676 = {
+			fileRef = D39279330821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279350821FFA400376676 = {
+			children = (
+				D39279370821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = Credits.rtf;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279360821FFA400376676 = {
+			fileRef = D39279350821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279370821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.rtf;
+			name = English;
+			path = English.lproj/Credits.rtf;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279380821FFA400376676 = {
+			children = (
+				D392793A0821FFA400376676,
+			);
+			isa = PBXVariantGroup;
+			name = InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279390821FFA400376676 = {
+			fileRef = D39279380821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392793A0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = English;
+			path = English.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392793B0821FFA400376676 = {
+			children = (
+				D314F2E60825A8F100E439E7,
+				D392793C0821FFA400376676,
+				D392793D0821FFA400376676,
+				D392793E0821FFA400376676,
+				D392793F0821FFA400376676,
+				D39279400821FFA400376676,
+				D39279410821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Supporting Files";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392793C0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
+			path = CustomInfo.plist;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392793D0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = h.template;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392793E0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = m.template;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392793F0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.make;
+			path = Makefile;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279400821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.postamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279410821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.preamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279420821FFA400376676 = {
+			children = (
+				D39279430821FFA400376676,
+				D39279570821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = Subprojects;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279430821FFA400376676 = {
+			children = (
+				D392794F0821FFA400376676,
+				D39279520821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = cat2rtf;
+			path = cat2rtf.tproj;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279440821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279450821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279510821FFA400376676,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279460821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279470821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279480821FFA400376676 = {
+			buildPhases = (
+				D39279440821FFA400376676,
+				D39279450821FFA400376676,
+				D39279460821FFA400376676,
+				D39279470821FFA400376676,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cat2rtf;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = "cat2rtf (Tool)";
+			productName = "cat2rtf (Tool)";
+			productReference = D39279490821FFA400376676;
+		};
+		D39279490821FFA400376676 = {
+			explicitFileType = "compiled.mach-o.executable";
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = cat2rtf;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D392794B0821FFA400376676 = {
+			containerPortal = D39279890821FFA400376676;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D39279480821FFA400376676;
+			remoteInfo = "cat2rtf (Tool)";
+		};
+		D392794C0821FFA400376676 = {
+			isa = PBXTargetDependency;
+			target = D39279480821FFA400376676;
+			targetProxy = D392794B0821FFA400376676;
+		};
+		D392794D0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D392794E0821FFA400376676,
+				D39279610821FFA400376676,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392794E0821FFA400376676 = {
+			fileRef = D39279490821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D392794F0821FFA400376676 = {
+			children = (
+				D39279500821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Other Sources";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279500821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			path = cat2rtf.c;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279510821FFA400376676 = {
+			fileRef = D39279500821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39279520821FFA400376676 = {
+			children = (
+				D39279530821FFA400376676,
+				D39279540821FFA400376676,
+				D39279550821FFA400376676,
+				D39279560821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Supporting Files";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279530821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.preamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279540821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.make;
+			path = Makefile;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279550821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.postamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279560821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.lex;
+			path = cat2rtf.l;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279570821FFA400376676 = {
+			children = (
+				D39279620821FFA400376676,
+				D39279650821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = cat2html;
+			path = cat2html.tproj;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279580821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279590821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279640821FFA400376676,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392795A0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279820821FFA400376676,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392795B0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392795C0821FFA400376676 = {
+			buildPhases = (
+				D39279580821FFA400376676,
+				D39279590821FFA400376676,
+				D392795A0821FFA400376676,
+				D392795B0821FFA400376676,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cat2html;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = "cat2html (Tool)";
+			productName = "cat2html (Tool)";
+			productReference = D392795D0821FFA400376676;
+		};
+		D392795D0821FFA400376676 = {
+			explicitFileType = "compiled.mach-o.executable";
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = cat2html;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D392795F0821FFA400376676 = {
+			containerPortal = D39279890821FFA400376676;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D392795C0821FFA400376676;
+			remoteInfo = "cat2html (Tool)";
+		};
+		D39279600821FFA400376676 = {
+			isa = PBXTargetDependency;
+			target = D392795C0821FFA400376676;
+			targetProxy = D392795F0821FFA400376676;
+		};
+		D39279610821FFA400376676 = {
+			fileRef = D392795D0821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279620821FFA400376676 = {
+			children = (
+				D39279630821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Other Sources";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279630821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			path = cat2html.c;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279640821FFA400376676 = {
+			fileRef = D39279630821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39279650821FFA400376676 = {
+			children = (
+				D39279660821FFA400376676,
+				D39279670821FFA400376676,
+				D39279680821FFA400376676,
+				D39279690821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Supporting Files";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279660821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.preamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279670821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.make;
+			path = Makefile;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279680821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.postamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279690821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.lex;
+			path = cat2html.l;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392796A0821FFA400376676 = {
+			children = (
+				D39279760821FFA400376676,
+				D39279790821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = openman;
+			path = openman.tproj;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392796B0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392796C0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279780821FFA400376676,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392796D0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+				D39279840821FFA400376676,
+				D39279870821FFA400376676,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392796E0821FFA400376676 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D392796F0821FFA400376676 = {
+			buildPhases = (
+				D392796B0821FFA400376676,
+				D392796C0821FFA400376676,
+				D392796D0821FFA400376676,
+				D392796E0821FFA400376676,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = openman;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = "openman (Tool)";
+			productInstallPath = /usr/local/bin;
+			productName = "openman (Tool)";
+			productReference = D39279700821FFA400376676;
+		};
+		D39279700821FFA400376676 = {
+			explicitFileType = "compiled.mach-o.executable";
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = openman;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D39279720821FFA400376676 = {
+			containerPortal = D39279890821FFA400376676;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D392796F0821FFA400376676;
+			remoteInfo = "openman (Tool)";
+		};
+		D39279730821FFA400376676 = {
+			isa = PBXTargetDependency;
+			target = D392796F0821FFA400376676;
+			targetProxy = D39279720821FFA400376676;
+		};
+		D39279740821FFA400376676 = {
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D39279750821FFA400376676,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39279750821FFA400376676 = {
+			fileRef = D39279700821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279760821FFA400376676 = {
+			children = (
+				D39279770821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Other Sources";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279770821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = openman.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279780821FFA400376676 = {
+			fileRef = D39279770821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		D39279790821FFA400376676 = {
+			children = (
+				D392797A0821FFA400376676,
+				D392797B0821FFA400376676,
+				D392797C0821FFA400376676,
+				D392797D0821FFA400376676,
+				D392797E0821FFA400376676,
+				D392797F0821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "Supporting Files";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797A0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.preamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797B0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.make;
+			path = Makefile;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797C0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = Makefile.postamble;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797D0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = m.template;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797E0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = h.template;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D392797F0821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.man;
+			path = openman.1;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279800821FFA400376676 = {
+			children = (
+				D39279810821FFA400376676,
+				D39279850821FFA400376676,
+			);
+			isa = PBXGroup;
+			name = "External Frameworks and Libraries";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		D39279810821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Foundation.framework;
+			path = /System/Library/Frameworks/Foundation.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D39279820821FFA400376676 = {
+			fileRef = D39279810821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279830821FFA400376676 = {
+			fileRef = D39279810821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279840821FFA400376676 = {
+			fileRef = D39279810821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279850821FFA400376676 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = AppKit.framework;
+			path = /System/Library/Frameworks/AppKit.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D39279860821FFA400376676 = {
+			fileRef = D39279850821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279870821FFA400376676 = {
+			fileRef = D39279850821FFA400376676;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D39279890821FFA400376676 = {
+			buildSettings = {
+			};
+			buildStyles = (
+				D39278DD0821FF9D00376676,
+				D39278DE0821FF9D00376676,
+			);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			knownPlatforms = (
+				macos,
+				macosclassic,
+				windows,
+				solaris,
+				hpux,
+				macintosh,
+			);
+			mainGroup = D39278DB0821FF9D00376676;
+			productRefGroup = D39278ED0821FFA400376676;
+			projectDirPath = "";
+			targets = (
+				D39278DF0821FFA400376676,
+				D39278EB0821FFA400376676,
+				D39279480821FFA400376676,
+				D392795C0821FFA400376676,
+				D392796F0821FFA400376676,
+			);
+		};
+	};
+	rootObject = D39279890821FFA400376676;
+}

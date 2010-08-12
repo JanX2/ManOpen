@@ -1,0 +1,63 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                enterSelection = id; 
+                findNext = id; 
+                findPrevious = id; 
+                jumpToSelection = id; 
+                openDocument = id; 
+                orderFrontFindPanel = id; 
+                performZoom = id; 
+                printDocument = id; 
+                saveCurrentWindowSize = id; 
+                showHelp = id; 
+            }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cancelText = id; 
+                okText = id; 
+                openAproposPanel = id; 
+                openSection = id; 
+                openTextPanel = id; 
+                orderFrontFindPanel = id; 
+                orderFrontHelpPanel = id; 
+                orderFrontPreferencesPanel = id; 
+                runPageLayout = id; 
+            }; 
+            CLASS = ManDocumentController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                aproposField = id; 
+                aproposPanel = id; 
+                helpPanel = id; 
+                infoPanel = id; 
+                openSectionPopup = id; 
+                openTextField = id; 
+                openTextPanel = id; 
+            }; 
+            SUPERCLASS = NSDocumentController; 
+        }, 
+        {
+            ACTIONS = {
+                hideOtherApplications = id; 
+                orderFrontStandardAboutPanel = id; 
+                unhideAllApplications = id; 
+            }; 
+            CLASS = NSApplication; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSResponder; 
+        }, 
+        {
+            ACTIONS = {newDocument = id; openDocument = id; saveAllDocuments = id; }; 
+            CLASS = NSDocumentController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
