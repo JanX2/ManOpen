@@ -231,11 +231,12 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
     return nil;
 }
 
-- (NSString *)typeFromFilename:(NSString *)filename
+- (NSString *)typeFromURL:(NSURL *)url
 {
-    NSFileHandle  *handle;
+    NSString *filename = [url path];
+	NSFileHandle  *handle;
     NSFileManager *manager = [NSFileManager defaultManager];
-    NSDictionary  *attributes = [manager fileAttributesAtPath:filename traverseLink:YES];
+    NSDictionary  *attributes = [manager attributesOfItemAtPath:[filename stringByResolvingSymlinksInPath] error:NULL];
     unsigned      maxLength = MIN(150, (unsigned)[attributes fileSize]);
     NSData        *fileHeader;
     NSString      *catType = @"cat";
@@ -269,7 +270,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
  * completely to avoid that chance, and instead determine the type of
  * the file based on contents.
  */
-- (id)openDocumentWithContentsOfFile:(NSString *)filename display:(BOOL)display
+- (id)openDocumentWithContentsOfURL:(NSURL *)absoluteURL display:(BOOL)displayDocument error:(NSError **)outError
 {
     NSDocument *document;
 
@@ -281,16 +282,14 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
      * also make document lookup always find the file if it's open, even if under
      * another name.
      */
-    filename = [filename stringByStandardizingPath];
-
-    if ((document = [self documentForFileName:filename]) == nil)
+    if ((document = [self documentForURL:absoluteURL]) == nil)
     {
         /* Resolve the type by contents rather than relying on the extension. */
-        NSString *type = [self typeFromFilename:filename];
+        NSString *type = [self typeFromURL:absoluteURL];
 
         if (type != nil)
         {
-            document = [self makeDocumentWithContentsOfFile:filename ofType:type];
+            document = [self makeDocumentWithContentsOfURL:absoluteURL ofType:type error:outError];
             [document makeWindowControllers];
             [self addDocument:document];
         }
@@ -365,13 +364,13 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
     AproposDocument *document;
     NSString *title = [NSString stringWithFormat:@"Apropos %@", apropos];
 
-    if ((document = [self documentForFileName:title]) == nil)
-    {
+    // We could check for an identical apropos document and use that instead…
+	//if ((document = [self documentWithName:title]) == nil) {
         document = [[[AproposDocument alloc]
                         initWithString:apropos manPath:manPath title:title] autorelease];
         if (document) [self addDocument:document];
         [document makeWindowControllers];
-    }
+    //}
 
     [document showWindows];
 
@@ -630,7 +629,7 @@ static BOOL IsSectionWord(NSString *word)
 {
     if (force)
         [self ensureActive];
-    [self openDocumentWithContentsOfFile:filename display:YES];
+    [self openDocumentWithContentsOfURL:[NSURL fileURLWithPath:filename] display:YES error:NULL];
 }
 
 /*" Simple API methods to open a named man page "*/
@@ -683,11 +682,8 @@ static BOOL IsSectionWord(NSString *word)
     if ([types containsObject:NSFilenamesPboardType] &&
         (fileArray = [pboard propertyListForType:NSFilenamesPboardType]))
     {
-        int i, count = [fileArray count];
-
-        for (i=0; i<count; i++)
-        {
-            [self openDocumentWithContentsOfFile:[fileArray objectAtIndex:i] display:YES];
+        for (NSString *fileName in fileArray) {
+            [self openDocumentWithContentsOfURL:[NSURL fileURLWithPath:fileName] display:YES error:NULL];
         }
     }
 }

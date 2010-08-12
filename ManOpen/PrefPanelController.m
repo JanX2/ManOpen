@@ -151,38 +151,12 @@ void RegisterManDefaults()
     [super dealloc];
 }
 
-#include <mach-o/dyld.h>
-/*
- * Normally, you would use weak binding, so that symbols for private functions would just be set to NULL
- * if they were not available, and you could just check for that.  However, weak binding only works on
- * Jaguar and later, and I want one binary to work on MacOS 10.1 as well, so we dynamically look up
- * the private functions the old-fashioned way.
- */
-static OSStatus (*_RCLSCopyApplicationURLsForItemURL)(NSURL *inURL, LSRolesMask inRoleMask, NSArray **outApps);
-static OSStatus (*_RCLSCopyDefaultSchemeHandlerURL)(NSString *scheme, NSURL **appURL);
-static OSStatus (*_RCLSSetDefaultSchemeHandlerURL)(NSString *scheme, NSURL *appURL);
-static OSStatus (*_RCLSSaveAndRefresh)(void);
-
-static void *LookupSymbol(char *symbolName)
-{
-    if (NSIsSymbolNameDefined(symbolName))
-        return NSAddressOfSymbol(NSLookupAndBindSymbol(symbolName));
-    return NULL;
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
 
     [movePathUpButton setBezelStyle:NSShadowlessSquareBezelStyle];
     [movePathDownButton setBezelStyle:NSShadowlessSquareBezelStyle];
-    
-    _RCLSCopyApplicationURLsForItemURL = LookupSymbol("__LSCopyApplicationURLsForItemURL");
-    _RCLSCopyDefaultSchemeHandlerURL = LookupSymbol("__LSCopyDefaultSchemeHandlerURL");
-    _RCLSSetDefaultSchemeHandlerURL = LookupSymbol("__LSSetDefaultSchemeHandlerURL");
-    _RCLSSaveAndRefresh = LookupSymbol("__LSSaveAndRefresh");
-    if (_RCLSCopyApplicationURLsForItemURL == NULL)
-        [panePopup removeItemAtIndex:2];
 
     generalView = [[generalPaneBox contentView] retain];
     appearanceView = [[appearancePaneBox contentView] retain];
@@ -395,37 +369,12 @@ static void *LookupSymbol(char *symbolName)
 #import <AppKit/NSWorkspace.h>
 #import <AppKit/NSImage.h>
 
-/* Returns by reference the NSURLs of the applications regsistered to handle the given URL.  For the
-   "file" protocol, this will use the type/extension/etc info for the file (which must exist for
-   this to work), and for any other type of URLs this will return applications registered to handle
-   that URL scheme.  The resulting NSArray must be released by the caller. */
-/* Panther has an LSCopyApplicationURLsForURL() function that would be better to use */
-extern OSStatus _LSCopyApplicationURLsForItemURL(NSURL *inURL, LSRolesMask inRoleMask, NSArray **outApps)
-  AVAILABLE_MAC_OS_X_VERSION_10_1_AND_LATER;
-
-/* Returns the NSURL for application currently set as the default for the given URL scheme.  The
-   NSURL must be released by the caller. */
-extern OSStatus _LSCopyDefaultSchemeHandlerURL(NSString *scheme, NSURL **appURL)
-  AVAILABLE_MAC_OS_X_VERSION_10_1_AND_LATER;
-
-/* Sets the default application for a URL scheme. */
-extern OSStatus _LSSetDefaultSchemeHandlerURL(NSString *scheme, NSURL *appURL)
-  AVAILABLE_MAC_OS_X_VERSION_10_1_AND_LATER;
-
-/* This causes Finder to become aware of any changes that are made. */
-extern OSStatus _LSSaveAndRefresh()
-  AVAILABLE_MAC_OS_X_VERSION_10_1_AND_LATER;
-
-
-static NSString *NiceNameForApp(NSURL *appURL)
+static NSString *NiceNameForApp(NSString *bundleID)
 {
-    NSBundle *appBundle = [NSBundle bundleWithPath:[appURL path]];
-    NSDictionary *infoDict = [appBundle infoDictionary];
+    NSBundle *appBundle = [NSBundle bundleWithIdentifier:bundleID];
+    NSDictionary *infoDict = [appBundle localizedInfoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"];
-    NSString *niceName = nil;
-
-    LSCopyDisplayNameForURL((CFURLRef)appURL, (CFStringRef*)&niceName);
-    [niceName autorelease];
+    NSString *niceName = [infoDict objectForKey:@"CFBundleDisplayName"];
 
     if (appVersion != nil)
         niceName = [NSString stringWithFormat:@"%@ (%@)", niceName, appVersion];
@@ -433,48 +382,19 @@ static NSString *NiceNameForApp(NSURL *appURL)
     return niceName;
 }
 
-/*
- * CFURL instances tend to not have a trailing '/' character, while NSURL instances
- * do, meaning they do not compare as "equal". So, we have to use this function
- * instead.
- */
-static BOOL AppsEqual(NSURL *app1, NSURL *app2)
-{
-    NSString *path1 = [app1 path];
-    NSString *path2 = [app2 path];
-
-    if ([path1 length] == ([path2 length]+1) && [path1 hasPrefix:path2] && [path1 hasSuffix:@"/"])
-        return YES;
-    if ([path2 length] == ([path1 length]+1) && [path2 hasPrefix:path1] && [path2 hasSuffix:@"/"])
-        return YES;
-    return [path1 isEqual:path2];
-}
-
-static unsigned IndexOfApp(NSArray *appArray, id app)
-{
-    int i, count = [appArray count];
-
-    for (i=0; app != nil && i<count; i++) {
-        if (AppsEqual([appArray objectAtIndex:i], app))
-            return i;
-    }
-
-    return NSNotFound;
-}
-
 #define URL_SCHEME @"x-man-page"
 #define URL_SCHEME_PREFIX URL_SCHEME @":"
 
 static NSMutableArray *availableApps;
 static NSMutableArray *appNames;
-static NSURL *currentApp = nil;
+static NSString *currentApp = nil;
 
 
 @implementation PrefPanelController (DefaultManApp)
 
 - (void)setAppPopupToCurrent
 {
-    int currIndex = IndexOfApp(availableApps, currentApp);
+    int currIndex = [availableApps indexOfObject:currentApp];
 
     if (currIndex == NSNotFound) {
         currIndex = 0;
@@ -519,17 +439,18 @@ static NSURL *currentApp = nil;
 
 - (void)resetCurrentApp
 {
-    NSURL *currSetURL = nil;
+    NSString *currentBundleID = nil;
 
-    if (_RCLSCopyDefaultSchemeHandlerURL(URL_SCHEME, &currSetURL) == 0)
+    currentBundleID = (NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef)URL_SCHEME);
+	if (currentBundleID != nil)
     {
         BOOL resetPopup = (currentApp == nil); //first time
 
         [currentApp release];
-        currentApp = [currSetURL retain];
-        [currSetURL release];
+        currentApp = [currentBundleID retain];
+        [currentBundleID release];
 
-        if (IndexOfApp(availableApps, currentApp) == NSNotFound)
+        if ([availableApps indexOfObject:currentApp] == NSNotFound)
         {
             [availableApps addObject:currentApp];
             [appNames addObject:NiceNameForApp(currentApp)];
@@ -542,13 +463,12 @@ static NSURL *currentApp = nil;
     }
 }
 
-- (void)setManPageViewer:(NSURL *)app
+- (void)setManPageViewer:(NSString *)app
 {
     int error;
-    if ((error = _RCLSSetDefaultSchemeHandlerURL(URL_SCHEME, app)) != 0)
+    if ((error = LSSetDefaultHandlerForURLScheme((CFStringRef)URL_SCHEME, (CFStringRef)app)) != 0)
         NSLog(@"Could not set default " URL_SCHEME_PREFIX @" app: Launch Services error %d", error);
-    else
-        _RCLSSaveAndRefresh();
+
     [self resetCurrentApp];
 }
 
@@ -561,15 +481,17 @@ static NSURL *currentApp = nil;
         availableApps = [[NSMutableArray alloc] init];
         appNames = [[NSMutableArray alloc] init];
 
-        if (_RCLSCopyApplicationURLsForItemURL(dummyURL, kLSRolesViewer, &apps) == 0)
+		apps = (NSArray *)LSCopyApplicationURLsForURL((CFURLRef)dummyURL, kLSRolesViewer);
+		
+        if (apps != nil)
         {
-            int i, count = [apps count];
             [availableApps setArray:apps];
             [apps release];
 
             [appNames removeAllObjects];
-            for (i=0; i<count; i++)
-                [appNames addObject:NiceNameForApp([availableApps objectAtIndex:i])];
+            for (NSString *thisApp in availableApps) {
+                [appNames addObject:NiceNameForApp(thisApp)];
+			}
         }
     }
 
@@ -581,9 +503,9 @@ static NSURL *currentApp = nil;
     int choice = [appPopup indexOfSelectedItem];
 
     if (choice >= 0 && choice < [availableApps count]) {
-        NSURL *appURL = [availableApps objectAtIndex:choice];
-        if (appURL != currentApp)
-            [self setManPageViewer:appURL];
+        NSString *appID = [availableApps objectAtIndex:choice];
+        if (appID != currentApp)
+            [self setManPageViewer:appID];
     }
     else {
         NSOpenPanel *panel = [NSOpenPanel openPanel];
@@ -600,9 +522,11 @@ static NSURL *currentApp = nil;
 - (void)panelDidEnd:(NSOpenPanel *)panel code:(int)returnCode context:(void *)context
 {
     if (returnCode == NSOKButton) {
-        NSURL *appURL = [panel URL];
-        if (appURL != nil)
-            [self setManPageViewer:appURL];
+		NSBundle *appBundle = [NSBundle bundleWithPath:[[[panel URLs] objectAtIndex:0] path]];
+
+        NSString *appID = [appBundle bundleIdentifier];
+        if (appID != nil)
+            [self setManPageViewer:appID];
     }
     [self setAppPopupToCurrent];
 }

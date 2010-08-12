@@ -581,20 +581,37 @@ static NSCursor *linkCursor = nil;
 - (void)drawPageBorderWithSize:(NSSize)size
 {
     NSFont *font = ManFont();
-    int currPage = [[NSPrintOperation currentOperation] currentPage];
-    NSString *str = [NSString stringWithFormat:@"%d", currPage];
-    float strWidth = [font widthOfString:str];
-    NSPoint point = NSMakePoint(size.width/2 - strWidth/2, 20.0);
+	
+    NSInteger currPage = [[NSPrintOperation currentOperation] currentPage];
+    NSString *str = [NSString stringWithFormat:@"%ld", (long)currPage];
+	
+	NSMutableParagraphStyle* style = [[NSMutableParagraphStyle alloc] init];
+	[style setAlignment:NSCenterTextAlignment];
+	NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
+						   style, NSParagraphStyleAttributeName,
+						   font, NSFontAttributeName,
+						   nil];
+	
+    NSSize strSize = [str sizeWithAttributes:attrs];
+    NSPoint point = NSMakePoint(size.width/2 - strSize.width/2, 20.0f/* - strSize.height/2*/);	 
+	
+	[NSGraphicsContext saveGraphicsState];
 
-    CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+	[str drawAtPoint:point withAttributes:attrs];
     
-    CGContextSaveGState(context);
+	[NSGraphicsContext restoreGraphicsState];
+	
+	[style release];
+
+	/*
+	CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextSetTextDrawingMode(context, kCGTextFill);  //needed?
     CGContextSetGrayFillColor(context, 0.0, 1.0);
     CGContextSelectFont(context, [[font fontName] cStringUsingEncoding:NSUTF8StringEncoding], [font pointSize], kCGEncodingMacRoman);
     CGContextShowTextAtPoint(context, point.x, point.y, [str cStringUsingEncoding:NSUTF8StringEncoding], [str cStringLength]);
     CGContextRestoreGState(context);
+	 */
 }
 
 @end
