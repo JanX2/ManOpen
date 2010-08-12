@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D2FA2080DFBF8D000504C5F /* ManPage.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2FA2040DFBF8D000504C5F /* ManPage.nib */; };
-		3D2FA2090DFBF8D000504C5F /* ManPageLibrarian.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2FA2060DFBF8D000504C5F /* ManPageLibrarian.nib */; };
-		3D64E53C0DFBE5DB0058D167 /* Apropos.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E5300DFBE5DB0058D167 /* Apropos.nib */; };
-		3D64E53D0DFBE5DB0058D167 /* FindPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E5320DFBE5DB0058D167 /* FindPanel.nib */; };
-		3D64E53E0DFBE5DB0058D167 /* DocController.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E5340DFBE5DB0058D167 /* DocController.nib */; };
-		3D64E53F0DFBE5DB0058D167 /* PrefPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E5360DFBE5DB0058D167 /* PrefPanel.nib */; };
+		3D519C4C121448440067F7CB /* ManOpen-macos.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C4A121448440067F7CB /* ManOpen-macos.xib */; };
+		3D519C5D12144C960067F7CB /* PrefPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5112144C960067F7CB /* PrefPanel.xib */; };
+		3D519C5E12144C960067F7CB /* ManPageLibrarian.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5312144C960067F7CB /* ManPageLibrarian.xib */; };
+		3D519C5F12144C960067F7CB /* ManPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5512144C960067F7CB /* ManPage.xib */; };
+		3D519C6012144C960067F7CB /* FindPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5712144C960067F7CB /* FindPanel.xib */; };
+		3D519C6112144C960067F7CB /* DocController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5912144C960067F7CB /* DocController.xib */; };
+		3D519C6212144C960067F7CB /* Apropos.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C5B12144C960067F7CB /* Apropos.xib */; };
+		3D519C7D12144F900067F7CB /* down.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C7812144F900067F7CB /* down.tiff */; };
+		3D519C7E12144F900067F7CB /* Find.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C7912144F900067F7CB /* Find.tiff */; };
+		3D519C7F12144F900067F7CB /* FindLibrarian.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C7A12144F900067F7CB /* FindLibrarian.tiff */; };
+		3D519C8012144F900067F7CB /* helpQMark.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C7B12144F900067F7CB /* helpQMark.tiff */; };
+		3D519C8112144F900067F7CB /* up.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D519C7C12144F900067F7CB /* up.tiff */; };
 		3D64E54C0DFBE63C0058D167 /* LinkCursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E5490DFBE63C0058D167 /* LinkCursor.tiff */; };
 		3D64E54D0DFBE63C0058D167 /* ManOpen.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E54A0DFBE63C0058D167 /* ManOpen.icns */; };
 		3D64E54E0DFBE63C0058D167 /* ManOpen.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E54B0DFBE63C0058D167 /* ManOpen.tiff */; };
@@ -26,7 +32,6 @@
 		3D64E5710DFBE6E40058D167 /* FindPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E5670DFBE6E40058D167 /* FindPanelController.m */; };
 		3D64E5720DFBE6E40058D167 /* ManOpen_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E5690DFBE6E40058D167 /* ManOpen_main.m */; };
 		3D64E5730DFBE6E40058D167 /* AproposDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E56B0DFBE6E40058D167 /* AproposDocument.m */; };
-		3D64E58D0DFBE8910058D167 /* ManOpen-macos.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64E58B0DFBE8910058D167 /* ManOpen-macos.nib */; };
 		3D64E5A80DFBE96F0058D167 /* cat2rtf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E5A70DFBE96F0058D167 /* cat2rtf.c */; };
 		3D64E5BF0DFBEA490058D167 /* cat2html.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E5BE0DFBEA490058D167 /* cat2html.c */; };
 		3D64E5DF0DFBEB0E0058D167 /* openman.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D64E5DE0DFBEB0E0058D167 /* openman.m */; };
@@ -82,14 +87,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ManOpen/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ManOpen/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ManOpen-Universal_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ManOpen-Universal_Prefix.pch"; sourceTree = "<group>"; };
-		3D2FA2050DFBF8D000504C5F /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/ManPage.nib; sourceTree = "<group>"; };
-		3D2FA2070DFBF8D000504C5F /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/ManPageLibrarian.nib; sourceTree = "<group>"; };
-		3D64E5310DFBE5DB0058D167 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/Apropos.nib; sourceTree = "<group>"; };
-		3D64E5330DFBE5DB0058D167 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/FindPanel.nib; sourceTree = "<group>"; };
-		3D64E5350DFBE5DB0058D167 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/DocController.nib; sourceTree = "<group>"; };
-		3D64E5370DFBE5DB0058D167 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ManOpen/English.lproj/PrefPanel.nib; sourceTree = "<group>"; };
+		3D519C4B121448440067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = "ManOpen/English.lproj/ManOpen-macos.xib"; sourceTree = "<group>"; };
+		3D519C5212144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/PrefPanel.xib; sourceTree = "<group>"; };
+		3D519C5412144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/ManPageLibrarian.xib; sourceTree = "<group>"; };
+		3D519C5612144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/ManPage.xib; sourceTree = "<group>"; };
+		3D519C5812144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/FindPanel.xib; sourceTree = "<group>"; };
+		3D519C5A12144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/DocController.xib; sourceTree = "<group>"; };
+		3D519C5C12144C960067F7CB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ManOpen/English.lproj/Apropos.xib; sourceTree = "<group>"; };
+		3D519C7812144F900067F7CB /* down.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = down.tiff; sourceTree = "<group>"; };
+		3D519C7912144F900067F7CB /* Find.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Find.tiff; sourceTree = "<group>"; };
+		3D519C7A12144F900067F7CB /* FindLibrarian.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FindLibrarian.tiff; sourceTree = "<group>"; };
+		3D519C7B12144F900067F7CB /* helpQMark.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = helpQMark.tiff; sourceTree = "<group>"; };
+		3D519C7C12144F900067F7CB /* up.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = up.tiff; sourceTree = "<group>"; };
 		3D64E5490DFBE63C0058D167 /* LinkCursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = LinkCursor.tiff; path = ManOpen/LinkCursor.tiff; sourceTree = SOURCE_ROOT; };
 		3D64E54A0DFBE63C0058D167 /* ManOpen.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ManOpen.icns; path = ManOpen/ManOpen.icns; sourceTree = SOURCE_ROOT; };
 		3D64E54B0DFBE63C0058D167 /* ManOpen.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = ManOpen.tiff; path = ManOpen/ManOpen.tiff; sourceTree = SOURCE_ROOT; };
@@ -103,7 +114,6 @@
 		3D64E5620DFBE6E40058D167 /* ManDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ManDocumentController.h; path = ManOpen/ManDocumentController.h; sourceTree = SOURCE_ROOT; };
 		3D64E5630DFBE6E40058D167 /* NSData+Utils.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = "NSData+Utils.m"; path = "ManOpen/NSData+Utils.m"; sourceTree = SOURCE_ROOT; };
 		3D64E5640DFBE6E40058D167 /* NSData+Utils.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "NSData+Utils.h"; path = "ManOpen/NSData+Utils.h"; sourceTree = SOURCE_ROOT; };
-		3D64E5650DFBE6E40058D167 /* SystemType.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SystemType.h; path = ManOpen/SystemType.h; sourceTree = SOURCE_ROOT; };
 		3D64E5660DFBE6E40058D167 /* PrefPanelController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PrefPanelController.m; path = ManOpen/PrefPanelController.m; sourceTree = SOURCE_ROOT; };
 		3D64E5670DFBE6E40058D167 /* FindPanelController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = FindPanelController.m; path = ManOpen/FindPanelController.m; sourceTree = SOURCE_ROOT; };
 		3D64E5680DFBE6E40058D167 /* ManOpenProtocol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ManOpenProtocol.h; path = ManOpen/ManOpenProtocol.h; sourceTree = SOURCE_ROOT; };
@@ -111,7 +121,6 @@
 		3D64E56A0DFBE6E40058D167 /* FindPanelController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = FindPanelController.h; path = ManOpen/FindPanelController.h; sourceTree = SOURCE_ROOT; };
 		3D64E56B0DFBE6E40058D167 /* AproposDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AproposDocument.m; path = ManOpen/AproposDocument.m; sourceTree = SOURCE_ROOT; };
 		3D64E56C0DFBE6E40058D167 /* ManDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ManDocument.h; path = ManOpen/ManDocument.h; sourceTree = SOURCE_ROOT; };
-		3D64E58C0DFBE8910058D167 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "ManOpen/English.lproj/ManOpen-macos.nib"; sourceTree = "<group>"; };
 		3D64E59E0DFBE9480058D167 /* cat2rtf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cat2rtf; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D64E5A70DFBE96F0058D167 /* cat2rtf.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = cat2rtf.c; path = ManOpen/cat2rtf.tproj/cat2rtf.c; sourceTree = SOURCE_ROOT; };
 		3D64E5B20DFBE9E60058D167 /* cat2html */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cat2html; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +214,6 @@
 				3D64E5620DFBE6E40058D167 /* ManDocumentController.h */,
 				3D64E5630DFBE6E40058D167 /* NSData+Utils.m */,
 				3D64E5640DFBE6E40058D167 /* NSData+Utils.h */,
-				3D64E5650DFBE6E40058D167 /* SystemType.h */,
 				3D64E5660DFBE6E40058D167 /* PrefPanelController.m */,
 				3D64E5670DFBE6E40058D167 /* FindPanelController.m */,
 				3D64E5680DFBE6E40058D167 /* ManOpenProtocol.h */,
@@ -218,6 +226,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				3D519C7712144F900067F7CB /* Images */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -235,19 +244,19 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D2FA2040DFBF8D000504C5F /* ManPage.nib */,
-				3D2FA2060DFBF8D000504C5F /* ManPageLibrarian.nib */,
-				3D64E58B0DFBE8910058D167 /* ManOpen-macos.nib */,
+				3D519C5B12144C960067F7CB /* Apropos.xib */,
+				3D519C5912144C960067F7CB /* DocController.xib */,
+				3D519C5712144C960067F7CB /* FindPanel.xib */,
+				3D519C5512144C960067F7CB /* ManPage.xib */,
+				3D519C5312144C960067F7CB /* ManPageLibrarian.xib */,
+				3D519C5112144C960067F7CB /* PrefPanel.xib */,
+				3D519C4A121448440067F7CB /* ManOpen-macos.xib */,
 				3D64E5590DFBE6B00058D167 /* ManOpen.scriptSuite */,
 				3D64E5570DFBE6A20058D167 /* ManOpen.scriptTerminology */,
 				3D64E5510DFBE65F0058D167 /* Credits.rtf */,
 				3D64E5490DFBE63C0058D167 /* LinkCursor.tiff */,
 				3D64E54A0DFBE63C0058D167 /* ManOpen.icns */,
 				3D64E54B0DFBE63C0058D167 /* ManOpen.tiff */,
-				3D64E5300DFBE5DB0058D167 /* Apropos.nib */,
-				3D64E5320DFBE5DB0058D167 /* FindPanel.nib */,
-				3D64E5340DFBE5DB0058D167 /* DocController.nib */,
-				3D64E5360DFBE5DB0058D167 /* PrefPanel.nib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);
@@ -263,6 +272,18 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D519C7712144F900067F7CB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3D519C7812144F900067F7CB /* down.tiff */,
+				3D519C7912144F900067F7CB /* Find.tiff */,
+				3D519C7A12144F900067F7CB /* FindLibrarian.tiff */,
+				3D519C7B12144F900067F7CB /* helpQMark.tiff */,
+				3D519C7C12144F900067F7CB /* up.tiff */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,19 +385,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				3D64E53C0DFBE5DB0058D167 /* Apropos.nib in Resources */,
-				3D64E53D0DFBE5DB0058D167 /* FindPanel.nib in Resources */,
-				3D64E53E0DFBE5DB0058D167 /* DocController.nib in Resources */,
-				3D64E53F0DFBE5DB0058D167 /* PrefPanel.nib in Resources */,
 				3D64E54C0DFBE63C0058D167 /* LinkCursor.tiff in Resources */,
 				3D64E54D0DFBE63C0058D167 /* ManOpen.icns in Resources */,
 				3D64E54E0DFBE63C0058D167 /* ManOpen.tiff in Resources */,
 				3D64E5530DFBE65F0058D167 /* Credits.rtf in Resources */,
 				3D64E5580DFBE6A20058D167 /* ManOpen.scriptTerminology in Resources */,
 				3D64E55A0DFBE6B00058D167 /* ManOpen.scriptSuite in Resources */,
-				3D64E58D0DFBE8910058D167 /* ManOpen-macos.nib in Resources */,
-				3D2FA2080DFBF8D000504C5F /* ManPage.nib in Resources */,
-				3D2FA2090DFBF8D000504C5F /* ManPageLibrarian.nib in Resources */,
+				3D519C4C121448440067F7CB /* ManOpen-macos.xib in Resources */,
+				3D519C5D12144C960067F7CB /* PrefPanel.xib in Resources */,
+				3D519C5E12144C960067F7CB /* ManPageLibrarian.xib in Resources */,
+				3D519C5F12144C960067F7CB /* ManPage.xib in Resources */,
+				3D519C6012144C960067F7CB /* FindPanel.xib in Resources */,
+				3D519C6112144C960067F7CB /* DocController.xib in Resources */,
+				3D519C6212144C960067F7CB /* Apropos.xib in Resources */,
+				3D519C7D12144F900067F7CB /* down.tiff in Resources */,
+				3D519C7E12144F900067F7CB /* Find.tiff in Resources */,
+				3D519C7F12144F900067F7CB /* FindLibrarian.tiff in Resources */,
+				3D519C8012144F900067F7CB /* helpQMark.tiff in Resources */,
+				3D519C8112144F900067F7CB /* up.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,53 +476,61 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3D2FA2040DFBF8D000504C5F /* ManPage.nib */ = {
+		3D519C4A121448440067F7CB /* ManOpen-macos.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D2FA2050DFBF8D000504C5F /* English */,
+				3D519C4B121448440067F7CB /* English */,
 			);
-			name = ManPage.nib;
+			name = "ManOpen-macos.xib";
 			sourceTree = "<group>";
 		};
-		3D2FA2060DFBF8D000504C5F /* ManPageLibrarian.nib */ = {
+		3D519C5112144C960067F7CB /* PrefPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D2FA2070DFBF8D000504C5F /* English */,
+				3D519C5212144C960067F7CB /* English */,
 			);
-			name = ManPageLibrarian.nib;
+			name = PrefPanel.xib;
 			sourceTree = "<group>";
 		};
-		3D64E5300DFBE5DB0058D167 /* Apropos.nib */ = {
+		3D519C5312144C960067F7CB /* ManPageLibrarian.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D64E5310DFBE5DB0058D167 /* English */,
+				3D519C5412144C960067F7CB /* English */,
 			);
-			name = Apropos.nib;
-			sourceTree = SOURCE_ROOT;
+			name = ManPageLibrarian.xib;
+			sourceTree = "<group>";
 		};
-		3D64E5320DFBE5DB0058D167 /* FindPanel.nib */ = {
+		3D519C5512144C960067F7CB /* ManPage.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D64E5330DFBE5DB0058D167 /* English */,
+				3D519C5612144C960067F7CB /* English */,
 			);
-			name = FindPanel.nib;
-			sourceTree = SOURCE_ROOT;
+			name = ManPage.xib;
+			sourceTree = "<group>";
 		};
-		3D64E5340DFBE5DB0058D167 /* DocController.nib */ = {
+		3D519C5712144C960067F7CB /* FindPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D64E5350DFBE5DB0058D167 /* English */,
+				3D519C5812144C960067F7CB /* English */,
 			);
-			name = DocController.nib;
-			sourceTree = SOURCE_ROOT;
+			name = FindPanel.xib;
+			sourceTree = "<group>";
 		};
-		3D64E5360DFBE5DB0058D167 /* PrefPanel.nib */ = {
+		3D519C5912144C960067F7CB /* DocController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D64E5370DFBE5DB0058D167 /* English */,
+				3D519C5A12144C960067F7CB /* English */,
 			);
-			name = PrefPanel.nib;
-			sourceTree = SOURCE_ROOT;
+			name = DocController.xib;
+			sourceTree = "<group>";
+		};
+		3D519C5B12144C960067F7CB /* Apropos.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D519C5C12144C960067F7CB /* English */,
+			);
+			name = Apropos.xib;
+			sourceTree = "<group>";
 		};
 		3D64E5510DFBE65F0058D167 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
@@ -506,14 +540,6 @@
 			name = Credits.rtf;
 			sourceTree = SOURCE_ROOT;
 		};
-		3D64E58B0DFBE8910058D167 /* ManOpen-macos.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D64E58C0DFBE8910058D167 /* English */,
-			);
-			name = "ManOpen-macos.nib";
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -521,11 +547,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -546,11 +567,6 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -566,11 +582,6 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -591,11 +602,6 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -610,11 +616,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -643,11 +644,6 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -670,11 +666,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -694,11 +685,6 @@
 					ppc,
 					i386,
 				);
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
@@ -712,12 +698,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
-				GCC_VERSION = 4.0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -726,12 +713,13 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = 4.0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Release;
 		};

@@ -1,13 +1,7 @@
 
+#import <AppKit/AppKit.h>
+
 #import "ManOpenProtocol.h"
-#import "SystemType.h"
-
-#ifdef OPENSTEP
-#import "NSDocumentController.h"
-#else
-#import <AppKit/NSDocumentController.h>
-#endif
-
 
 @class NSPanel, NSTextField, NSPopUpButton, NSFont;
 @class NSData, NSMutableString;

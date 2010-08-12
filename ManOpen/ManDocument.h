@@ -1,15 +1,10 @@
 
-#import "SystemType.h"
-#ifdef OPENSTEP
-#import "NSDocument.h"
-#else
-#import <AppKit/NSDocument.h>
-#endif
+#import <AppKit/AppKit.h>
 
 @class ManTextView;
 @class NSTextField, NSText, NSButton, NSPopUpButton;
 
-@interface ManDocument : NSDocument
+@interface ManDocument : NSDocument <NSWindowDelegate>
 {
     NSString *shortTitle;
     NSData *taskData;
@@ -18,7 +13,7 @@
 
     IBOutlet ManTextView *textView;
     IBOutlet NSTextField *titleStringField;
-    IBOutlet NSButton    *findSelectionButton;
+    //IBOutlet NSButton    *findSelectionButton;
     IBOutlet NSButton    *openSelectionButton;
     IBOutlet NSPopUpButton *sectionPopup;
 }

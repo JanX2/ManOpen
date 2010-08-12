@@ -1094,7 +1094,7 @@ YY_RULE_SETUP
         if (yytext[yyleng-1] != '\010') {
             char *backspace = index(yytext, '\010');
             if (backspace != NULL) {
-                emitUnicode(decodeUTF8(backspace+1, (yyleng - (backspace-yytext) - 1)));
+                emitUnicode(decodeUTF8((unsigned char *)(backspace+1), (yyleng - (backspace-yytext) - 1)));
             }
         }
     }
@@ -1104,7 +1104,7 @@ case 18:
 YY_RULE_SETUP
 #line 310 "cat2html.l"
 {
-    emitUnicode(decodeUTF8(yytext, yyleng));
+    emitUnicode(decodeUTF8((unsigned char *)yytext, yyleng));
 }
 	YY_BREAK
 /*

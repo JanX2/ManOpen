@@ -15,7 +15,7 @@
 
 NSString *MakeAbsolutePath(const char *filename)
 {
-    NSString *currFile = [NSString stringWithCString:filename];
+    NSString *currFile = [NSString stringWithCString:filename encoding:NSUTF8StringEncoding];
 
     if (![currFile isAbsolutePath])
     {
@@ -55,7 +55,7 @@ int main (int argc, char * const *argv)
         {
             case 'm':
             case 'M':
-                manPath = [NSString stringWithCString:optarg];
+                manPath = [NSString stringWithCString:optarg encoding:NSUTF8StringEncoding];
                 break;
             case 'f':
                 [files addObject:MakeAbsolutePath(optarg)];
@@ -90,7 +90,7 @@ int main (int argc, char * const *argv)
 
     if (optind < argc && !aproposMode)
     {
-        NSString *tmp = [NSString stringWithCString:argv[optind]];
+        NSString *tmp = [NSString stringWithCString:argv[optind] encoding:NSUTF8StringEncoding];
 
         if (isdigit(argv[optind][0])          ||
 #ifdef OPENSTEP_ONLY
@@ -181,11 +181,11 @@ int main (int argc, char * const *argv)
     }
 
     if (manPath == nil && getenv("MANPATH") != NULL)
-        manPath = [NSString stringWithCString:getenv("MANPATH")];
+        manPath = [NSString stringWithCString:getenv("MANPATH") encoding:NSUTF8StringEncoding];
 
     for (i = optind; i < argc; i++)
     {
-        NSString *currFile = [NSString stringWithCString:argv[i]];
+        NSString *currFile = [NSString stringWithCString:argv[i] encoding:NSUTF8StringEncoding];
         if (aproposMode)
             [server openApropos:currFile manPath:manPath forceToFront:forceToFront];
         else

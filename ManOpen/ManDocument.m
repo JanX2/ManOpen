@@ -6,33 +6,13 @@
 #import "FindPanelController.h"
 #import "NSData+Utils.h"
 
-#ifdef MACOS_X
-/* Sigh, NSTypesetter is not in OPENSTEP, and is not part of AppKit.h in MacOS X */
-#import <AppKit/NSTypesetter.h>
 
 #ifndef NSFoundationVersionNumber10_3
 #define NSFoundationVersionNumber10_3 500.0
 #endif
-#define IsPanther() (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber10_3)
-#define IsPantherOrEarlier() (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber10_3)
-#endif
 
-#ifdef OPENSTEP
-@interface NSValue (ManOpenRangeAdditions)
-+ (NSValue *)valueWithRange:(NSRange)range;
-- (NSRange)rangeValue;
-@end
-@implementation NSValue (ManOpenRangeAdditions)
-+ (NSValue *)valueWithRange:(NSRange)range {
-    return [self valueWithBytes:&range objCType:@encode(NSRange)];
-}
-- (NSRange)rangeValue {
-    NSRange range;
-    [self getValue:&range];
-    return range;
-}
-@end
-#endif
+#define IsPanther() (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber10_3)
+
 
 @interface ManTextView : NSTextView
 - (void)scrollRangeToTop:(NSRange)charRange;
@@ -82,7 +62,7 @@
  */
 - (NSString *)displayName
 {
-    return ([self fileName] != nil)? [super displayName] : [self shortTitle];
+    return ([self fileURL] != nil)? [super displayName] : [self shortTitle];
 }
 
 - (NSString *)shortTitle
@@ -148,9 +128,7 @@
     }
     else if (taskData != nil)
     {
-#ifndef OPENSTEP
         storage = [[NSTextStorage alloc] initWithHTML:taskData documentAttributes:NULL];
-#endif
     }
 
     if (storage == nil)
@@ -191,9 +169,7 @@
                 [self addSectionHeader:[[storage string] substringWithRange:currRange] range:currRange];
             }
 
-#ifndef OPENSTEP
             isLink = ([attribs objectForKey:NSLinkAttributeName] != nil);
-#endif
 
             if (font != nil && ![[font familyName] isEqualToString:family])
                 font = [manager convertFont:font toFamily:family];
@@ -232,14 +208,8 @@
 - (NSString *)filterCommand
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-#ifdef OPENSTEP
-    NSString *tool = @"cat2rtf";
-#elif !defined(MACOS_X)
-    NSString *tool = @"cat2html";
-#else
     /* HTML parser in tiger got slow... RTF is faster, and is usable now that it supports hyperlinks */
     NSString *tool = IsPanther()? @"cat2rtf" : @"cat2html";
-#endif
     NSString *command = [[NSBundle mainBundle] pathForResource:tool ofType:nil];
 
     command = EscapePath(command, YES);
@@ -322,11 +292,6 @@
     [textView setSelectable:YES];
     [textView setImportsGraphics:NO];
     [textView setRichText:YES];
-#ifdef MACOS_X
-    /* The new ATS typesetter in Jaguar causes some weirdnesses... but is fixed in later versions. */
-    if (IsPantherOrEarlier())
-        [[textView layoutManager] setTypesetter:[NSSimpleHorizontalTypesetter sharedInstance]];
-#endif
 
     if (sizeString != nil)
     {
@@ -340,16 +305,10 @@
         }
     }
 
-    [findSelectionButton setToolTip:@" Find selection "];
-    [openSelectionButton setToolTip:@" Open selection "];
-    [[findSelectionButton cell] setGradientType:NSGradientConcaveStrong];
-    [[openSelectionButton cell] setGradientType:NSGradientConcaveStrong];
-#ifdef MACOS_X
-    [findSelectionButton setBezelStyle:NSThickerSquareBezelStyle];
-    [openSelectionButton setBezelStyle:NSThickerSquareBezelStyle];
+    //[[findSelectionButton cell] setGradientType:NSGradientConcaveStrong];
+    //[findSelectionButton setBezelStyle:NSThickerSquareBezelStyle];
     [[sectionPopup cell] setControlSize:NSSmallControlSize];
     [[sectionPopup cell] setFont:[NSFont labelFontOfSize:11.0]];
-#endif
 
     if ([self shortTitle])
         [titleStringField setStringValue:[self shortTitle]];
@@ -424,13 +383,10 @@
     [printInfo setVerticallyCentered:NO];
     [printInfo setHorizontallyCentered:YES];
     [printInfo setHorizontalPagination:NSFitPagination];
-    [operation setShowPanels:showPanel];
+    [operation setShowsPrintPanel:showPanel];
+    [operation setShowsProgressPanel:showPanel];
 
-#ifdef MACOS_X
     [operation runOperationModalForWindow:[textView window] delegate:nil didRunSelector:NULL contextInfo:NULL];
-#else
-    [operation runOperation];
-#endif
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)item
@@ -521,11 +477,7 @@
 
 @end
 
-#ifdef MACOS_X
 #import <ApplicationServices/ApplicationServices.h>
-#else
-#import <AppKit/psops.h>
-#endif
 
 @implementation ManTextView
 
@@ -634,24 +586,15 @@ static NSCursor *linkCursor = nil;
     float strWidth = [font widthOfString:str];
     NSPoint point = NSMakePoint(size.width/2 - strWidth/2, 20.0);
 
-#ifdef MACOS_X
     CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextSetTextDrawingMode(context, kCGTextFill);  //needed?
     CGContextSetGrayFillColor(context, 0.0, 1.0);
-    CGContextSelectFont(context, [[font fontName] cString], [font pointSize], kCGEncodingMacRoman);
-    CGContextShowTextAtPoint(context, point.x, point.y, [str cString], [str cStringLength]);
+    CGContextSelectFont(context, [[font fontName] cStringUsingEncoding:NSUTF8StringEncoding], [font pointSize], kCGEncodingMacRoman);
+    CGContextShowTextAtPoint(context, point.x, point.y, [str cStringUsingEncoding:NSUTF8StringEncoding], [str cStringLength]);
     CGContextRestoreGState(context);
-#else
-    PSgsave();
-    PSsetgray(0.0);
-    PSselectfont([[font fontName] cString], [font pointSize]);
-    PSmoveto(point.x, point.y);
-    PSshow([str cString]);
-    PSgrestore();
-#endif
 }
 
 @end

@@ -1,11 +1,6 @@
 /* PrefPanelController.h created by lindberg on Fri 08-Oct-1999 */
 
-#import "SystemType.h"
-#ifdef OPENSTEP
-#import "NSWindowController.h"
-#else
-#import <AppKit/NSWindowController.h>
-#endif
+#import <AppKit/AppKit.h>
 
 @class NSMutableArray;
 @class NSFont, NSColor;
@@ -21,12 +16,12 @@
     IBOutlet NSTableView *manPathTableView;
     IBOutlet NSTextField *nroffCommandField;
     IBOutlet NSTextField *fontField;
-    IBOutlet NSButton    *useItalicsSwitch;
-    IBOutlet NSButton    *useBoldSwitch;
-    IBOutlet NSButton    *lastClosedSwitch;
-    IBOutlet NSButton    *keepOpenSwitch;
-    IBOutlet NSButton    *openOnStartupSwitch;
-    IBOutlet NSButton    *openOnNoWindowsSwitch;
+    IBOutlet NSButtonCell    *useItalicsSwitch;
+    IBOutlet NSButtonCell    *useBoldSwitch;
+    IBOutlet NSButtonCell    *lastClosedSwitch;
+    IBOutlet NSButtonCell    *keepOpenSwitch;
+    IBOutlet NSButtonCell    *openOnStartupSwitch;
+    IBOutlet NSButtonCell    *openOnNoWindowsSwitch;
     IBOutlet NSButton    *movePathUpButton;
     IBOutlet NSButton    *movePathDownButton;
     IBOutlet NSColorWell *backgroundColorWell;
@@ -57,11 +52,9 @@
 
 @end
 
-#ifdef MACOS_X
 @interface PrefPanelController (DefaultManApp)
 - (IBAction)chooseNewApp:(id)sender;
 @end
-#endif
 
 extern void RegisterManDefaults();
 extern NSFont *ManFont();

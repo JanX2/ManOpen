@@ -25,25 +25,9 @@
 #import "FindPanelController.h"
 #import "PrefPanelController.h"
 
-#ifndef MACOS_X
-  /* These were private in pre-MacOS X... */ 
-  @interface NSDocumentController (ApplePrivate)
-  - (void)_addDocument:(NSDocument *)document;
-  - (void)_removeDocument:(NSDocument *)document;
-  @end
-  #define addDocument _addDocument
-  #define removeDocument _removeDocument
-#endif
-
-#ifdef OPENSTEP
-#define NSModalPanelWindowLevel 21
-#define MAN_BINARY     @"/usr/ucb/man"
-#define MANPATH_FORMAT @" -M '%@'"
-#else
 #define MAN_BINARY     @"/usr/bin/man"
 //#define MANPATH_FORMAT @" -m '%@'"  // There's a bug in man(1) on OSX and OSXS
 #define MANPATH_FORMAT @" -M '%@'"
-#endif
 
 /* 
  * We need to make sure we handle all sorts of characters in filenames. The way
@@ -221,7 +205,6 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
 
 - (NSString *)manFileForName:(NSString *)name section:(NSString *)section manPath:(NSString *)manPath
 {
-#ifdef MACOS_X
     NSMutableString *command;
     NSData *data;
 
@@ -244,7 +227,7 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
         if (filename != nil && [manager fileExistsAtPath:filename])
             return filename;
     }
-#endif
+
     return nil;
 }
 
@@ -366,10 +349,10 @@ NSString *EscapePath(NSString *path, BOOL addSurroundingQuotes)
 
         /* Add the filename to the recent menu */
         filename = [self manFileForName:name section:section manPath:manPath];
-#ifdef MACOS_X
+
         if (filename != nil)
             [self noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
-#endif
+
     }
 
     [document showWindows];
@@ -779,10 +762,6 @@ static BOOL IsSectionWord(NSString *word)
 
 
 /* On MacOS X, implement our x-man-page: scheme handler */
-#ifdef MACOS_X
-#import <Foundation/NSScriptCommand.h>
-#import <Foundation/NSURL.h>
-
 @interface ManOpenURLHandlerCommand : NSScriptCommand
 @end
 
@@ -840,4 +819,3 @@ static BOOL IsSectionWord(NSString *word)
 }
 
 @end
-#endif

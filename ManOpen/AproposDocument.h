@@ -1,11 +1,6 @@
 /* AproposDocument.h created by lindberg on Tue 10-Oct-2000 */
 
-#import "SystemType.h"
-#ifdef OPENSTEP
-#import "NSDocument.h"
-#else
-#import <AppKit/NSDocument.h>
-#endif
+#import <AppKit/AppKit.h>
 
 @class NSMutableArray;
 @class NSTableColumn, NSTableView;

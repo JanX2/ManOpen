@@ -1,13 +1,8 @@
 /* AproposDocument.m created by lindberg on Tue 10-Oct-2000 */
 
+
 #import "AproposDocument.h"
-#import <Foundation/NSString.h>
-#import <Foundation/NSArray.h>
-#import <Foundation/NSData.h>
-#import <Foundation/NSUserDefaults.h>
-#import <AppKit/NSTableView.h>
-#import <AppKit/NSPanel.h>
-#import <AppKit/NSPrintOperation.h>
+
 #import "ManDocumentController.h"
 
 @implementation AproposDocument
@@ -26,7 +21,6 @@
     [self setFileType:@"apropos"];
 
     [command appendString:@" -k"];
-#ifdef MACOS_X
     /*
      * Starting on Tiger, man -k doesn't quite work the same as apropos directly.
      * Use apropos then, even on Panther.  Panther/Tiger no longer accept the -M
@@ -42,11 +36,10 @@
         if ([apropos length] == 0)
             apropos = @".";
     }
-#endif
     
     [command appendFormat:@" %@", EscapePath(apropos, YES)];
     output = [docController dataByExecutingCommand:command manPath:manPath];
-    [self parseOutput:[NSString stringWithCString:[output bytes] length:[output length]]];
+    [self parseOutput:[NSString stringWithCString:[output bytes] encoding:NSUTF8StringEncoding]];
 
     if ([titles count] == 0) {
         NSRunAlertPanel(@"Nothing found", @"No pages related to '%@' found", nil, nil, nil, apropos);
@@ -148,12 +141,9 @@
 - (void)printShowingPrintPanel:(BOOL)showPanel
 {
     NSPrintOperation *op = [NSPrintOperation printOperationWithView:tableView];
-    [op setShowPanels:showPanel];
-#ifdef MACOS_X
+    [op setShowsPrintPanel:showPanel];
+    [op setShowsProgressPanel:showPanel];
     [op runOperationModalForWindow:[tableView window] delegate:nil didRunSelector:NULL contextInfo:NULL];
-#else
-    [op runOperation];
-#endif
 }
 
 /* NSTableView dataSource */

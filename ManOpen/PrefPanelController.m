@@ -73,11 +73,7 @@ NSFont *ManFont()
         }
     }
 
-#ifdef MACOS_X
     return [NSFont userFixedPitchFontOfSize:12.0]; // Monaco
-#else
-    return [NSFont fontWithName:@"Courier" size:12.0];
-#endif
 }
 
 NSString *ManPath()
@@ -155,7 +151,6 @@ void RegisterManDefaults()
     [super dealloc];
 }
 
-#ifdef MACOS_X
 #include <mach-o/dyld.h>
 /*
  * Normally, you would use weak binding, so that symbols for private functions would just be set to NULL
@@ -174,13 +169,11 @@ static void *LookupSymbol(char *symbolName)
         return NSAddressOfSymbol(NSLookupAndBindSymbol(symbolName));
     return NULL;
 }
-#endif
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
 
-#ifdef MACOS_X
     [movePathUpButton setBezelStyle:NSShadowlessSquareBezelStyle];
     [movePathDownButton setBezelStyle:NSShadowlessSquareBezelStyle];
     
@@ -190,9 +183,6 @@ static void *LookupSymbol(char *symbolName)
     _RCLSSaveAndRefresh = LookupSymbol("__LSSaveAndRefresh");
     if (_RCLSCopyApplicationURLsForItemURL == NULL)
         [panePopup removeItemAtIndex:2];
-#else
-    [panePopup removeItemAtIndex:2];
-#endif
 
     generalView = [[generalPaneBox contentView] retain];
     appearanceView = [[appearancePaneBox contentView] retain];
@@ -358,7 +348,7 @@ static void *LookupSymbol(char *symbolName)
         [manPathArray insertObject:path atIndex:targetRow];
         [path release];
         [manPathTableView reloadData];
-        [manPathTableView selectRow:targetRow byExtendingSelection:NO];
+		[manPathTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:targetRow] byExtendingSelection:NO];
         [self saveToDefaults:nil];
     }
 }
@@ -398,7 +388,6 @@ static void *LookupSymbol(char *symbolName)
  * too.  Unfortunately the LaunchServices functions to do this are private
  * and undocumented.
  */
-#ifdef MACOS_X
 #import <ApplicationServices/ApplicationServices.h>
 #import <Foundation/NSURL.h>
 #import <Foundation/NSBundle.h>
@@ -619,13 +608,3 @@ static NSURL *currentApp = nil;
 }
 @end
 
-#else
-/* Pre-MacOS, the nib still looks for the action method, and logs a
- * warning if not found, so define it.
- */
-@implementation PrefPanelController (AvoidNibLoadWarning)
-- (IBAction)chooseNewApp:(id)sender
-{
-}
-@end
-#endif
