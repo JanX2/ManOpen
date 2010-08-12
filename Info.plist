@@ -9,12 +9,26 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>man</string>
+				<string>*</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>ManOpen.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>man</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSDocumentClass</key>
+			<string>ManDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>gz</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>ManOpen.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>mangz</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>NSDocumentClass</key>
@@ -42,20 +56,6 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>ManOpen.icns</string>
 			<key>CFBundleTypeName</key>
-			<string>mangz</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>NSDocumentClass</key>
-			<string>ManDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>gz</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>ManOpen.icns</string>
-			<key>CFBundleTypeName</key>
 			<string>catgz</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
@@ -66,7 +66,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>ManOpen 2.5.1 (c) 2004 Carl Lindberg</string>
+	<string>ManOpen 2.5.2 (c) 2004 Carl Lindberg, 2010 Jan Weiß</string>
 	<key>CFBundleIconFile</key>
 	<string>ManOpen.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -78,7 +78,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.5.1</string>
+	<string>2.5.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -93,7 +93,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.5.1</string>
+	<string>2.5.2</string>
 	<key>NSAppVersion</key>
 	<string>Version 2.5</string>
 	<key>NSAppleScriptEnabled</key>
@@ -101,7 +101,7 @@
 	<key>NSHumanReadableCompleteName</key>
 	<string>ManOpen</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright (c) 1999-2004 Carl Lindberg</string>
+	<string>Copyright (c) 1999-2004 Carl Lindberg, 2010 Jan Weiß</string>
 	<key>NSHumanReadableShortName</key>
 	<string>ManOpen</string>
 	<key>NSInfoPlistVersion</key>
@@ -118,7 +118,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>ManOpen/Open File</string>
+				<string>ManOpen/Open Man File</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>openFiles</string>
@@ -140,7 +140,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>ManOpen/Open Selection</string>
+				<string>ManOpen/Open Man Page</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>openSelection</string>
