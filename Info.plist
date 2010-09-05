@@ -128,6 +128,8 @@
 			<array>
 				<string>NSFilenamesPboardType</string>
 			</array>
+			<key>NSServiceDescription</key>
+			<string>Opens files containing man pages.</string>
 		</dict>
 		<dict>
 			<key>NSExecutable</key>
@@ -140,7 +142,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>ManOpen/Open Man Page</string>
+				<string>ManOpen/Open Man Page of Selection</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>openSelection</string>
@@ -148,7 +150,7 @@
 			<string>ManOpen</string>
 			<key>NSSendTypes</key>
 			<array>
-				<string>NSStringPboardType</string>
+				<string>public.plain-text</string>
 			</array>
 		</dict>
 		<dict>
@@ -170,7 +172,7 @@
 			<string>ManOpen</string>
 			<key>NSSendTypes</key>
 			<array>
-				<string>NSStringPboardType</string>
+				<string>public.plain-text</string>
 			</array>
 		</dict>
 	</array>
