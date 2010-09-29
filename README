@@ -1,8 +1,9 @@
 
-ManOpen v2.5.1 by Carl Lindberg  November 2005
+ManOpen v2.5.2 by Jan Weiß, September 2010
+Previously maintained and written by Carl Lindberg
 
-	Please send any comments, suggestions or bug reports to
-	lindberg@clindberg.org.
+	Please use github for any comments, suggestions or bug reports:
+	http://github.com/JanX2/ManOpen/issues
 
 	This program is provided ``AS IS'' and without any warranty.
 
@@ -16,14 +17,13 @@ provided, which is basically a quick-and-dirty search of the man page
 databases.  Services are provided to other applications to open selected
 files/titles or do apropos searches using the selected text.
 
-	Version 2.5.1 changes:
+	Version 2.5.2 changes:
 
-    - No longer declares 1, 2, 3, 4, ... , 9 file extensions as man pages.
-      This caused problems on some systems.
-    - Page loading got slower under MacOS 10.4.2; this should be fixed.
-    - Handled some cases where UTF8 sequences appeared in the man page.
-    - Add support for the "n" man page section, (ab)used by Tcl for
-      its man pages.
+    - Universal build (including 64-bit).
+    - Improved Service names: they are now more easily identifiable 
+      on Mac OS X 10.6. 
+    - You can open files with 1, 2, 3, 4, ... , 9 file extensions as 
+      man pages again.
 
 	ManOpen can be useful for opening a man page without dropping
 down to the command line, browsing and searching through long and
@@ -33,18 +33,13 @@ complex man pages, or simply for printing them out.
 to "man" except it will display the man pages in ManOpen.app instead
 of directly to the terminal.
 
-	ManOpen should run on MacOS X 10.x, MacOS X Server 1.2, and
-OPENSTEP/Mach machines.  Source code is available.  To install the app,
-put ManOpen.app in one of the standard Application directories, such
-as /Network/Applications, /Applications or ~/Applications.  You may
-have to log out and back to have the services work.
+	ManOpen should run on MacOS X 10.5+.  Source code is available on 
+github.  To install the app, put ManOpen.app anywhere you like.  You may
+have to log out and back in to have the services work.
 
     To install the "openman" tool, put it in one of the directories in
 the Unix $PATH, such as /usr/local/bin.  Put its "openman.1" man page
 in a standard man page directory, such as /usr/local/man/man1.
-[Note that as of MacOS X 10.2, /usr/local/bin is not part of the
-default PATH.  Adding "set path = (/usr/local/bin $path)" to your
-~/.cshrc file is one way to set it back.]
 
 
 	For those who remember, there was a ManOpen 1.0 application
@@ -55,7 +50,6 @@ which is also used in this version.
 
 	Hope you find this useful,
 	
-	-Carl Lindberg
-	lindberg@clindberg.org
-	lindberg@mac.com
+	-Jan Weiß
+	github@geheimwerk.de
 
